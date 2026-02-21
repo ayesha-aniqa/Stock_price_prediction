@@ -7,7 +7,7 @@ import os
 # 1. Page Setup
 st.set_page_config(page_title="NVDA Predictor", layout="centered")
 
-# Custom CSS for Pastel Colors (Frosty Blue and Mint)
+# Custom CSS for Pastel Colors
 st.markdown("""
     <style>
     .stApp {
@@ -31,7 +31,7 @@ st.markdown("""
 st.title("📈 NVDA Stock Price Predictor")
 st.write("Enter the market data below to predict the **Closing Price**.")
 
-# 2. Load the "Saved Brain" (Model)
+# 2. Load the Model
 @st.cache_resource
 def load_model():
     with open("models/trained_model.pkl", "rb") as f:
@@ -39,7 +39,7 @@ def load_model():
 
 model = load_model()
 
-# 3. Create the UI Inputs (Sidebar)
+# 3. Create the UI Inputs
 st.sidebar.header("Input Market Values")
 open_price = st.sidebar.number_input("Open Price", value=100.0)
 high_price = st.sidebar.number_input("High Price", value=105.0)
