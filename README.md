@@ -43,7 +43,7 @@ This project demonstrates a complete end-to-end machine learning workflow suitab
 
 ## Built With
 
-- Python 3.x
+- Python 3.10+
 - Pandas
 - NumPy
 - Scikit-learn
