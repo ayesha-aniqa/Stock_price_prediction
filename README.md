@@ -1,318 +1,252 @@
-📈 Stock Price Prediction using XGBoost
-Table of Contents
+# 📈 Stock Price Prediction using XGBoost
 
-About The Project
+---
 
-Built With
+## Table of Contents
 
-Getting Started
+- [About The Project](#about-the-project)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Dependencies](#dependencies)
+  - [Installation](#installation)
+  - [Alternative: Export Your Environment](#alternative-export-your-environment)
+- [Usage](#usage)
+- [Project Workflow](#project-workflow)
+- [Results](#results)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Authors](#authors)
+- [Acknowledgements](#acknowledgements)
 
-Dependencies
+---
 
-Alternative: Export Your Environment
+## About The Project
 
-Installation
+This project implements a Machine Learning-based **Stock Price Prediction System** using historical stock market data.
 
-Usage
+The main objective is to predict future stock prices using advanced regression techniques while following a complete and professional machine learning pipeline.
 
-Roadmap
+The project includes:
 
-Contributing
+- Data preprocessing using **Pandas**
+- Feature scaling using **MinMaxScaler**
+- Model training using **XGBoost Regressor**
+- Model testing and performance evaluation
+- Data visualization using **Matplotlib and Seaborn**
 
-License
+The dataset consists of historical stock information such as Open, High, Low, Close, Volume, and engineered features. The target variable represents the future stock price.
 
-Authors
+This project demonstrates a complete end-to-end machine learning workflow suitable for academic and practical applications.
 
-Acknowledgements
+---
 
-About The Project
+## Built With
 
-This project presents a complete Machine Learning pipeline for Stock Price Prediction using historical stock market data. The model is trained to predict future stock prices based on engineered features derived from historical trends.
+- Python 3.x
+- Pandas
+- NumPy
+- Scikit-learn
+- XGBoost
+- Matplotlib
+- Seaborn
+- Pickle
 
-The project follows a structured ML workflow:
+---
 
-Data Preprocessing using Pandas
+## Getting Started
 
-Data cleaning
+To run this project locally, follow the instructions below.
 
-Date indexing
+---
 
-Feature selection
+## Dependencies
 
-Train-test split (Time-series aware)
+Required libraries:
 
-Feature scaling using MinMaxScaler
+- pandas >= 1.5.0
+- numpy >= 1.23.0
+- scikit-learn >= 1.2.0
+- xgboost >= 1.7.0
+- matplotlib >= 3.6.0
+- seaborn >= 0.12.0
 
-Model Training using XGBoost
-
-XGBRegressor implementation
-
-Hyperparameter configuration
-
-Model fitting on training data
-
-Model Testing & Evaluation
-
-Mean Squared Error (MSE)
-
-Mean Absolute Error (MAE)
-
-R² Score
-
-Model Visualization using Matplotlib & Seaborn
-
-Actual vs Predicted Stock Prices
-
-Residual Error Distribution
-
-Feature Importance Plot
-
-Scatter Plot Analysis
-
-The dataset used consists of processed historical stock data (processed_nvidia.csv) containing technical and price-based features for prediction.
-
-This project demonstrates:
-
-Time-series handling
-
-Feature scaling
-
-Gradient boosting regression
-
-Performance evaluation
-
-Data visualization
-
-Model persistence using Pickle
-
-Built With
-
-Python 3.10+
-
-Pandas
-
-NumPy
-
-Scikit-learn
-
-XGBoost
-
-Matplotlib
-
-Seaborn
-
-Pickle
-
-Getting Started
-
-To recreate this project locally, follow the steps below.
-
-The repository structure:
-
-Stock_Price_Prediction/
-│
-├── data/
-│   └── processed_nvidia.csv
-│
-├── notebooks/
-│   ├── preprocessing.ipynb
-│   ├── model_training.ipynb
-│   ├── model_testing.ipynb
-│   ├── Model_Visualization.ipynb
-│   ├── scaler.pkl
-│   └── xGboost_model.pkl
-│
-├── models/
-├── requirements.txt
-└── README.md
-Dependencies
-
-Below are the required libraries with recommended versions:
-
-pandas >= 1.5.0
-numpy >= 1.23.0
-scikit-learn >= 1.2.0
-xgboost >= 1.7.0
-matplotlib >= 3.6.0
-seaborn >= 0.12.0
-
-You can install them using:
+Install all dependencies using:
 
 pip install -r requirements.txt
 
-Or individually:
+Or install manually:
 
 pip install pandas numpy scikit-learn xgboost matplotlib seaborn
-Alternative: Export Your Environment
 
-To export your current conda environment:
+---
 
-conda env export > requirements.yml
-
-Another user can recreate it using:
-
-conda env create -f requirements.yml
-Installation
+## Installation
 
 Clone the repository:
 
-git clone https://github.com/your_username/Stock_Price_Prediction.git
+git clone https://github.com/your_username/stock-price-prediction.git
 
-Navigate to the project directory:
+Navigate to the project folder:
 
-cd Stock_Price_Prediction
 
 Install dependencies:
 
-pip install -r requirements.txt
 
-Launch Jupyter Notebook:
+---
 
-jupyter notebook
-Usage
+## Usage
 
-Follow the notebooks in order:
+The project is organized into Jupyter notebooks representing each stage of the machine learning pipeline.
 
-1️⃣ Data Preprocessing
+### 1. Data Preprocessing
 
-Run:
+Run: notebooks/preprocessing.ipynb
 
-notebooks/preprocessing.ipynb
 
 This notebook:
+- Cleans missing values
+- Creates the target variable
+- Splits dataset into training and testing sets (90% train, 10% test)
+- Applies MinMax scaling
 
-Loads dataset
+---
 
-Cleans and prepares features
+### 2. Model Training
 
-Applies scaling
+Run: notebooks/model_training.ipynb
 
-Saves scaler (scaler.pkl)
-
-2️⃣ Model Training
-
-Run:
-
-notebooks/model_training.ipynb
 
 This notebook:
+- Trains an XGBoost Regressor
+- Uses hyperparameters:
+  - n_estimators = 500
+  - learning_rate = 0.03
+  - max_depth = 6
+  - random_state = 42
+- Saves trained model as:
+  - xGboost_model.pkl
+  - scaler.pkl
 
-Trains XGBoost Regressor
+---
 
-Fits model on training data
+### 3. Model Testing
 
-Saves trained model (xGboost_model.pkl)
+Run: notebooks/model_testing.ipynb
 
-3️⃣ Model Testing
-
-Run:
-
-notebooks/model_testing.ipynb
 
 This notebook:
+- Loads saved model and scaler
+- Predicts stock prices
+- Evaluates performance using:
+  - Mean Squared Error (MSE)
+  - Mean Absolute Error (MAE)
+  - R² Score
 
-Loads saved model
+---
 
-Evaluates on test data
+### 4. Model Visualization
 
-Prints MSE, MAE, and R² score
+Run: notebooks/Model_Visualization.ipynb
 
-4️⃣ Model Visualization
-
-Run:
-
-notebooks/Model_Visualization.ipynb
 
 This notebook generates:
 
-📊 Actual vs Predicted Stock Prices
+- Actual vs Predicted Stock Price Plot
+- Feature Importance Graph
+- Residual Error Distribution
+- Scatter Plot (Predicted vs Actual)
+- Model Performance Summary
 
-📉 Residual Error Distribution
+---
 
-🔍 Feature Importance Graph
+## Project Workflow
 
-📈 Scatter Plot of Predictions
+Raw Stock Data
+↓
+Data Preprocessing (Pandas)
+↓
+Feature Scaling (MinMaxScaler)
+↓
+Train-Test Split (Time-Series Based)
+↓
+Model Training (XGBoost)
+↓
+Model Evaluation
+↓
+Visualization (Matplotlib & Seaborn)
 
-Example outputs are saved as:
 
-Actual Vs Predicted Stock Price.png
+This structured workflow ensures reproducibility, clarity, and professional implementation standards.
 
-Model Performance Metrics.png
+---
 
-Feature Importance XGBoost.png
+## Results
 
-Residual Error Distribution.png
+The model performance is evaluated using:
 
-Model Performance
+- Mean Squared Error (MSE)
+- Mean Absolute Error (MAE)
+- R² Score
 
-The XGBoost model demonstrates strong predictive performance with:
+The XGBoost model demonstrates strong predictive capability in modeling nonlinear patterns in stock price data.
 
-Low Mean Squared Error
+Visual comparisons between actual and predicted values show close alignment, validating model effectiveness.
 
-Low Mean Absolute Error
+---
 
-High R² Score (close to 1)
-
-The visualization results show a strong alignment between actual and predicted values, indicating good generalization capability.
-
-Roadmap
+## Roadmap
 
 Future improvements:
 
-Hyperparameter tuning using GridSearchCV
+- Hyperparameter tuning using GridSearchCV
+- Time-series cross-validation
+- Real-time stock API integration
+- Deployment using Flask or Streamlit
+- Comparison with Deep Learning models (LSTM/GRU)
 
-Cross-validation for time-series data
+---
 
-Deployment using Flask / FastAPI
+## Contributing
 
-Real-time stock API integration
+Contributions are welcome.
 
-LSTM comparison model
+Steps:
 
-Streamlit dashboard for interactive predictions
+1. Fork the repository
+2. Create a feature branch:
+3. Commit changes:
+4. Push to branch:
+5. Open a Pull Request
 
-Contributing
+---
 
-Contributions are welcome and appreciated.
+## License
 
-To contribute:
+Distributed under the MIT License.  
+See LICENSE file for more information.
 
-Fork the project
+---
 
-Create your Feature Branch
+## Authors
 
-git checkout -b feature/AmazingFeature
+Anees Ahmad  
+https://github.com/IaM-AnEeS 
 
-Commit your Changes
+Project Repository:  
+https://github.com/your_username/stock-price-prediction
 
-git commit -m "Add Amazing Feature"
+---
 
-Push to the Branch
+## Acknowledgements
 
-git push origin feature/AmazingFeature
+- Scikit-learn Documentation
+- XGBoost Official Documentation
+- Kaggle (Dataset Source)
+- Open Source Community
 
-Open a Pull Request
+---
 
-License
-
-Distributed under the MIT License.
-See LICENSE for more information.
-
-Authors
-
-Anees Ahmad
-GitHub: https://github.com/IaM-AnEeS
-
-Project Link:
-https://github.com/ayesha-aniqa/Stock_price_prediction
-
-Acknowledgements
-
-Scikit-learn Documentation
-
-XGBoost Documentation
-
-Kaggle (for financial data inspiration)
-
-Open-source ML community
-
+If you found this project useful, consider giving it a star.
+Thank You
+  
