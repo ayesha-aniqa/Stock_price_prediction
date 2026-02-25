@@ -85,7 +85,7 @@ pip install pandas numpy scikit-learn xgboost matplotlib seaborn
 
 Clone the repository:
 
-git clone https://github.com/your_username/stock-price-prediction.git
+git clone https://github.com/ayesha-aniqa/Stock_price_prediction
 
 Navigate to the project folder:
 
