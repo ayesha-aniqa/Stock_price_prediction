@@ -1,208 +1,318 @@
-This project is a complete Machine Learning-based stock price prediction system developed to forecast the future prices of NVIDIA (NVDA) using historical stock market data. The system follows a structured data science workflow including data preprocessing, exploratory data analysis (EDA), feature engineering, model training, model evaluation, visualization, and model deployment preparation.
+📈 Stock Price Prediction using XGBoost
+Table of Contents
 
-Stock market prediction is a complex and challenging task due to high volatility, market uncertainty, economic factors, global events, and investor behavior. This project demonstrates how machine learning techniques can be applied to analyze historical patterns and generate meaningful predictions using structured financial data.
+About The Project
 
-The model used in this project is XGBoost (Extreme Gradient Boosting), which is one of the most powerful and efficient machine learning algorithms for regression tasks.
+Built With
 
-🏢 About NVIDIA
-4
+Getting Started
 
-Company Name: NVIDIA
-Stock Symbol: NVDA
-Industry: Semiconductor, Artificial Intelligence, GPUs
-Market: NASDAQ
+Dependencies
 
-NVIDIA is a leading global technology company known for designing graphics processing units (GPUs) and AI computing solutions. It plays a major role in gaming, artificial intelligence, deep learning, autonomous vehicles, and high-performance computing systems. Due to its strong performance in AI and data center markets, NVIDIA stock is widely analyzed in financial markets.
+Alternative: Export Your Environment
 
-🎯 Project Goals
+Installation
 
-The main objectives of this project are:
+Usage
 
-To analyze historical NVIDIA stock price data
+Roadmap
 
-To perform data cleaning and preprocessing
+Contributing
 
-To apply feature engineering techniques
+License
 
-To train a high-performance regression model using XGBoost
+Authors
 
-To evaluate the model using proper regression metrics
+Acknowledgements
 
-To visualize predictions and performance
+About The Project
 
-To save the trained model for future use
+This project presents a complete Machine Learning pipeline for Stock Price Prediction using historical stock market data. The model is trained to predict future stock prices based on engineered features derived from historical trends.
 
-To demonstrate practical application of machine learning in finance
+The project follows a structured ML workflow:
 
-🧠 Problem Statement
+Data Preprocessing using Pandas
 
-Predicting stock prices is a regression problem where the goal is to estimate continuous numerical values. The challenge lies in:
+Data cleaning
 
-Market fluctuations
+Date indexing
 
-Non-linear patterns
+Feature selection
 
-External economic influences
+Train-test split (Time-series aware)
 
-Time-series dependencies
+Feature scaling using MinMaxScaler
 
-This project attempts to solve this problem using machine learning techniques that can identify hidden patterns in historical data.
+Model Training using XGBoost
 
-🛠️ Technologies and Tools Used
-Programming Language:
+XGBRegressor implementation
 
-Python
+Hyperparameter configuration
 
-Libraries:
+Model fitting on training data
 
-NumPy – Mathematical and numerical operations
-
-Pandas – Data analysis and manipulation
-
-XGBoost – Machine learning regression algorithm
-
-Matplotlib – Data visualization
-
-Seaborn – Statistical visualization
-
-Pickle – Model saving and loading
-
-📊 Methodology
-1️⃣ Data Collection
-
-Historical stock data of NVIDIA was collected, which includes:
-
-Open Price
-
-High Price
-
-Low Price
-
-Close Price
-
-Volume
-
-Date
-
-The dataset was structured in tabular format and prepared for analysis.
-
-2️⃣ Data Preprocessing
-
-Data preprocessing included:
-
-Checking for missing values
-
-Handling null or inconsistent data
-
-Converting data types if necessary
-
-Selecting important features
-
-Scaling (if applied)
-
-Splitting dataset into training and testing sets
-
-Proper preprocessing ensures better model performance and reduces errors.
-
-Example libraries used:
-
-import numpy as np
-import pandas as pd
-3️⃣ Exploratory Data Analysis (EDA)
-
-EDA was performed to understand:
-
-Stock price trends
-
-Relationships between variables
-
-Correlation between features
-
-Data distribution
-
-Visualization techniques were used to gain insights into historical stock behavior.
-
-4️⃣ Feature Engineering
-
-Feature engineering improves model accuracy by:
-
-Selecting relevant predictors
-
-Transforming time-based data
-
-Preparing structured input for regression
-
-This step helps the model learn better relationships.
-
-5️⃣ Model Selection: XGBoost
-
-The model used in this project is XGBoost Regressor.
-
-XGBoost is selected because:
-
-It is highly accurate
-
-It uses gradient boosting technique
-
-It handles large datasets efficiently
-
-It reduces overfitting using regularization
-
-It works well for structured data
-
-It is fast and optimized
-
-from xgboost import XGBRegressor
-
-The model was trained using historical stock data.
-
-6️⃣ Model Training
-
-The training process involved:
-
-Feeding historical data into the model
-
-Building multiple decision trees
-
-Minimizing prediction errors
-
-Optimizing model parameters
-
-The model learned patterns from past stock behavior to predict future prices.
-
-7️⃣ Model Evaluation
-
-The trained model was tested on unseen data.
-
-Evaluation metrics used:
-
-Mean Absolute Error (MAE)
+Model Testing & Evaluation
 
 Mean Squared Error (MSE)
 
-Root Mean Squared Error (RMSE)
+Mean Absolute Error (MAE)
 
 R² Score
 
-These metrics measure the difference between actual and predicted values.
+Model Visualization using Matplotlib & Seaborn
 
-A good R² score indicates strong model performance.
+Actual vs Predicted Stock Prices
 
-8️⃣ Data Visualization
+Residual Error Distribution
 
-Visualization was performed using:
+Feature Importance Plot
 
-import matplotlib.pyplot as plt
-import seaborn as sns
+Scatter Plot Analysis
 
-Graphs included:
+The dataset used consists of processed historical stock data (processed_nvidia.csv) containing technical and price-based features for prediction.
 
-Actual vs Predicted Price Graph
+This project demonstrates:
 
-Trend Analysis Chart
+Time-series handling
 
-Error Distribution Plot
+Feature scaling
 
-Correlation Heatmap
+Gradient boosting regression
 
-Visualization helps understand how well the model performs.s
+Performance evaluation
+
+Data visualization
+
+Model persistence using Pickle
+
+Built With
+
+Python 3.10+
+
+Pandas
+
+NumPy
+
+Scikit-learn
+
+XGBoost
+
+Matplotlib
+
+Seaborn
+
+Pickle
+
+Getting Started
+
+To recreate this project locally, follow the steps below.
+
+The repository structure:
+
+Stock_Price_Prediction/
+│
+├── data/
+│   └── processed_nvidia.csv
+│
+├── notebooks/
+│   ├── preprocessing.ipynb
+│   ├── model_training.ipynb
+│   ├── model_testing.ipynb
+│   ├── Model_Visualization.ipynb
+│   ├── scaler.pkl
+│   └── xGboost_model.pkl
+│
+├── models/
+├── requirements.txt
+└── README.md
+Dependencies
+
+Below are the required libraries with recommended versions:
+
+pandas >= 1.5.0
+numpy >= 1.23.0
+scikit-learn >= 1.2.0
+xgboost >= 1.7.0
+matplotlib >= 3.6.0
+seaborn >= 0.12.0
+
+You can install them using:
+
+pip install -r requirements.txt
+
+Or individually:
+
+pip install pandas numpy scikit-learn xgboost matplotlib seaborn
+Alternative: Export Your Environment
+
+To export your current conda environment:
+
+conda env export > requirements.yml
+
+Another user can recreate it using:
+
+conda env create -f requirements.yml
+Installation
+
+Clone the repository:
+
+git clone https://github.com/your_username/Stock_Price_Prediction.git
+
+Navigate to the project directory:
+
+cd Stock_Price_Prediction
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Launch Jupyter Notebook:
+
+jupyter notebook
+Usage
+
+Follow the notebooks in order:
+
+1️⃣ Data Preprocessing
+
+Run:
+
+notebooks/preprocessing.ipynb
+
+This notebook:
+
+Loads dataset
+
+Cleans and prepares features
+
+Applies scaling
+
+Saves scaler (scaler.pkl)
+
+2️⃣ Model Training
+
+Run:
+
+notebooks/model_training.ipynb
+
+This notebook:
+
+Trains XGBoost Regressor
+
+Fits model on training data
+
+Saves trained model (xGboost_model.pkl)
+
+3️⃣ Model Testing
+
+Run:
+
+notebooks/model_testing.ipynb
+
+This notebook:
+
+Loads saved model
+
+Evaluates on test data
+
+Prints MSE, MAE, and R² score
+
+4️⃣ Model Visualization
+
+Run:
+
+notebooks/Model_Visualization.ipynb
+
+This notebook generates:
+
+📊 Actual vs Predicted Stock Prices
+
+📉 Residual Error Distribution
+
+🔍 Feature Importance Graph
+
+📈 Scatter Plot of Predictions
+
+Example outputs are saved as:
+
+Actual Vs Predicted Stock Price.png
+
+Model Performance Metrics.png
+
+Feature Importance XGBoost.png
+
+Residual Error Distribution.png
+
+Model Performance
+
+The XGBoost model demonstrates strong predictive performance with:
+
+Low Mean Squared Error
+
+Low Mean Absolute Error
+
+High R² Score (close to 1)
+
+The visualization results show a strong alignment between actual and predicted values, indicating good generalization capability.
+
+Roadmap
+
+Future improvements:
+
+Hyperparameter tuning using GridSearchCV
+
+Cross-validation for time-series data
+
+Deployment using Flask / FastAPI
+
+Real-time stock API integration
+
+LSTM comparison model
+
+Streamlit dashboard for interactive predictions
+
+Contributing
+
+Contributions are welcome and appreciated.
+
+To contribute:
+
+Fork the project
+
+Create your Feature Branch
+
+git checkout -b feature/AmazingFeature
+
+Commit your Changes
+
+git commit -m "Add Amazing Feature"
+
+Push to the Branch
+
+git push origin feature/AmazingFeature
+
+Open a Pull Request
+
+License
+
+Distributed under the MIT License.
+See LICENSE for more information.
+
+Authors
+
+Anees Ahmad
+GitHub: https://github.com/IaM-AnEeS
+
+Project Link:
+https://github.com/ayesha-aniqa/Stock_price_prediction
+
+Acknowledgements
+
+Scikit-learn Documentation
+
+XGBoost Documentation
+
+Kaggle (for financial data inspiration)
+
+Open-source ML community
+
