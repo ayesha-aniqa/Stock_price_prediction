@@ -99,7 +99,30 @@ Install dependencies:
 
 The project is organized into Jupyter notebooks representing each stage of the machine learning pipeline.
 
-### 1. Data Preprocessing
+### 1. Dataset
+kaggle Dataset link: https://www.kaggle.com/datasets/amirhoseinmousavian/nvidia-corporation-nvda-stock-price
+
+## Description
+This dataset is a time-series stock market dataset that contains daily trading information for a financial asset from 2020 to 2024. Each row represents a single trading day and includes key features such as the opening price, highest and lowest prices during the day, closing price, adjusted closing price (which accounts for dividends and stock splits), and trading volume. This type of dataset is commonly used for analyzing market trends, studying price movements, and building predictive models in finance.
+
+Each row represents one trading day, with the following columns:
+
+Date – the trading day
+
+Open – the price at which the asset opened
+
+High – the highest price reached during the day
+
+Low – the lowest price during the day
+
+Close – the price at market close
+
+Adj Close – the adjusted closing price (accounts for dividends, splits, etc.)
+
+Volume – the number of shares traded that day
+Overall, the dataset is useful for financial analysis, such as tracking price trends, performing technical analysis, building predictive models, or studying market behavior over time.
+
+### 2. Data Preprocessing
 
 Run: notebooks/preprocessing.ipynb
 
@@ -112,7 +135,7 @@ This notebook:
 
 ---
 
-### 2. Model Training
+### 3. Model Training
 
 Run: notebooks/model_training.ipynb
 
@@ -130,7 +153,7 @@ This notebook:
 
 ---
 
-### 3. Model Testing
+### 4. Model Testing
 
 Run: notebooks/model_testing.ipynb
 
@@ -145,7 +168,7 @@ This notebook:
 
 ---
 
-### 4. Model Visualization
+### 5. Model Visualization
 
 Run: notebooks/Model_Visualization.ipynb
 
@@ -230,11 +253,43 @@ See LICENSE file for more information.
 
 ## Authors
 
-Anees Ahmad  
-https://github.com/IaM-AnEeS 
+@Ayesha Aniqa --Team Leadership + Website Frontend + Model Evaluation + Project Guidance + Performance Analysis + Collaboration & Coordination 
+Github:
+https://github.com/ayesha-aniqa
+Medium:
+https://medium.com/@codeaisha123
+
+
+@Anees Ahmad--Dataset preprocessing + Data Cleaning + Feature Engineering + Model Training + Model Development + README Contribution 
+Github: 
+https://github.com/IaM-AnEeS
+Medium:
+https://medium.com/@aneesnesu042
+
+
+@Kashan Saqib--Model Testing  + Error Analysis + Validation & Testing + Performance Testing
+Github:
+https://github.com/Kashhan
+Medium:
+https://medium.com/@kashhann
+
+
+@Muhammad Mahaz Noor--Documentation + README Preparation + Technical Writing + Project Documentation + Content Structuring
+Github:
+https://github.com/mahaznoor
+Medium:
+
+
+
+@[Hizar Abdullah]--Model Visualizaion + Data Visualization + Result Visualization + Graphical Representation
+Github:
+https://github.com/khizerista
+Medium:
+https://medium.com/@khizerarena77
+
 
 Project Repository:  
-https://github.com/your_username/stock-price-prediction
+https://github.com/ayesha-aniqa/Stock_price_prediction
 
 ---
 
