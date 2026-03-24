@@ -205,12 +205,11 @@ This notebook generates:
 - Model Performance Summary
 
 ### Visuals
-![Actual vs Predicted](assets/Actual Vs Predicted Stock Price.png) 
-![Feature Importance](assets/Feature Importance XGBoost.png) 
-![Model Performance](assets/Model Performance Metrics.png) 
-![Residuals](assets/Residual Error Distribution.png) 
-![Scatter Plot](assets/Scatter Plot.png)
-
+![Actual vs Predicted](assets/Actual_vs_Predicted.png)
+![Feature Importance](assets/Feature_Importance_XGBoost.png)
+![Model Performance](assets/Model_Performance_Metrics.png)
+![Residuals](assets/Residual_Error_Distribution.png)
+![Scatter Plot](assets/Scatter_Plot.png)
 ## Project Workflow
 
 Raw Stock Data
