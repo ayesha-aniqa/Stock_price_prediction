@@ -205,11 +205,11 @@ This notebook generates:
 - Model Performance Summary
 
 ### Visuals
-![](assets\Actual Vs Predicted Stock Price.png)
-![](assets\Feature Importance XGBoost.png)
-![](assets\Model Performance Metrics.png)
-![](assets\Residual Error Distribution.png)
-![](assets\Scatter Plot.png)
+![Actual vs Predicted](assets/Actual Vs Predicted Stock Price.png) 
+![Feature Importance](assets/Feature Importance XGBoost.png) 
+![Model Performance](assets/Model Performance Metrics.png) 
+![Residuals](assets/Residual Error Distribution.png) 
+![Scatter Plot](assets/Scatter Plot.png)
 
 ## Project Workflow
 
@@ -284,8 +284,7 @@ See LICENSE file for more information.
 | [Muhammad Mahaz Noor](https://github.com/mahaznoor) | Technical Writer | Documentation, README preparation, technical writing, content structuring |
 | [Hizar Abdullah](https://github.com/khizerista) | Data Analyst | Model visualization, data visualization, result visualization, graphical representation |
 
-Project Repository:  
-https://github.com/ayesha-aniqa/Stock_price_prediction
+
 
 
 ## Acknowledgements
