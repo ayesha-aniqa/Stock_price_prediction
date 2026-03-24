@@ -5,6 +5,7 @@
 ## Table of Contents
 
 - [About The Project](#about-the-project)
+- [Project Structure](#project-structure)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Dependencies](#dependencies)
@@ -19,7 +20,7 @@
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
 
----
+
 
 ## About The Project
 
@@ -39,8 +40,39 @@ The dataset consists of historical stock information such as Open, High, Low, Cl
 
 This project demonstrates a complete end-to-end machine learning workflow suitable for academic and practical applications.
 
----
-
+## Project Structure
+``` bash
+STOCK_PRICE_PREDICTION/
+├── app/                        # Streamlit web application
+├── data/
+│   ├── nvidia.csv              # Raw dataset
+│   └── processed_nvidia.csv    # Cleaned & processed data
+├── docs/
+│   └── README.md
+├── models/
+│   └── trained_model.pkl       # Serialized trained model
+├── notebooks/
+│   ├── evaluate.ipynb
+│   ├── model_testing.ipynb
+│   ├── model_training.ipynb
+│   ├── Model_Visualization.ipynb
+│   ├── preprocessing.ipynb
+│   ├── scaler.pkl
+│   └── xgboost_model.pkl
+├── src/
+│   ├── evaluate.py
+│   ├── features.py
+│   ├── predict.py
+│   ├── preprocess.py
+│   ├── test.py
+│   ├── train.py
+│   ├── utils.py
+│   └── visual.py
+├── .gitignore
+├── LICENSE
+├── requirements.txt
+└── README.md
+```
 ## Built With
 
 - Python 3.10+
@@ -52,13 +84,11 @@ This project demonstrates a complete end-to-end machine learning workflow suitab
 - Seaborn
 - Pickle
 
----
-
 ## Getting Started
 
 To run this project locally, follow the instructions below.
 
----
+
 
 ## Dependencies
 
@@ -72,28 +102,23 @@ Required libraries:
 - seaborn >= 0.12.0
 
 Install all dependencies using:
-
+```bash
 pip install -r requirements.txt
-
-Or install manually:
-
 pip install pandas numpy scikit-learn xgboost matplotlib seaborn
-
----
+```
 
 ## Installation
 
 Clone the repository:
-
+```bash
 git clone https://github.com/ayesha-aniqa/Stock_price_prediction
-
+cd Stock_price_prediction
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
 Navigate to the project folder:
 
-
-Install dependencies:
-
-
----
 
 ## Usage
 
@@ -124,8 +149,10 @@ Overall, the dataset is useful for financial analysis, such as tracking price tr
 
 ### 2. Data Preprocessing
 
-Run: notebooks/preprocessing.ipynb
-
+Run: 
+```bash
+notebooks/preprocessing.ipynb
+```
 
 This notebook:
 - Cleans missing values
@@ -133,12 +160,12 @@ This notebook:
 - Splits dataset into training and testing sets (90% train, 10% test)
 - Applies MinMax scaling
 
----
-
 ### 3. Model Training
 
-Run: notebooks/model_training.ipynb
-
+Run: 
+```bash
+notebooks/model_training.ipynb
+```
 
 This notebook:
 - Trains an XGBoost Regressor
@@ -150,8 +177,6 @@ This notebook:
 - Saves trained model as:
   - xGboost_model.pkl
   - scaler.pkl
-
----
 
 ### 4. Model Testing
 
@@ -166,8 +191,6 @@ This notebook:
   - Mean Absolute Error (MAE)
   - R² Score
 
----
-
 ### 5. Model Visualization
 
 Run: notebooks/Model_Visualization.ipynb
@@ -181,7 +204,12 @@ This notebook generates:
 - Scatter Plot (Predicted vs Actual)
 - Model Performance Summary
 
----
+### Visuals
+![](assets\Actual Vs Predicted Stock Price.png)
+![](assets\Feature Importance XGBoost.png)
+![](assets\Model Performance Metrics.png)
+![](assets\Residual Error Distribution.png)
+![](assets\Scatter Plot.png)
 
 ## Project Workflow
 
@@ -216,8 +244,6 @@ The XGBoost model demonstrates strong predictive capability in modeling nonlinea
 
 Visual comparisons between actual and predicted values show close alignment, validating model effectiveness.
 
----
-
 ## Roadmap
 
 Future improvements:
@@ -227,8 +253,6 @@ Future improvements:
 - Real-time stock API integration
 - Deployment using Flask or Streamlit
 - Comparison with Deep Learning models (LSTM/GRU)
-
----
 
 ## Contributing
 
@@ -242,8 +266,6 @@ Steps:
 4. Push to branch:
 5. Open a Pull Request
 
----
-
 ## License
 
 Distributed under the MIT License.  
@@ -251,48 +273,20 @@ See LICENSE file for more information.
 
 ---
 
-## Authors
+## Team Contribuition
 
-@Ayesha Aniqa --Team Leadership + Website Frontend + Model Evaluation + Project Guidance + Performance Analysis + Collaboration & Coordination 
-Github:
-https://github.com/ayesha-aniqa
-Medium:
-https://medium.com/@codeaisha123
-
-
-@Anees Ahmad--Dataset preprocessing + Data Cleaning + Feature Engineering + Model Training + Model Development + README Contribution 
-Github: 
-https://github.com/IaM-AnEeS
-Medium:
-https://medium.com/@aneesnesu042
-
-
-@Kashan Saqib--Model Testing  + Error Analysis + Validation & Testing + Performance Testing
-Github:
-https://github.com/Kashhan
-Medium:
-https://medium.com/@kashhann
-
-
-@Muhammad Mahaz Noor--Documentation + README Preparation + Technical Writing + Project Documentation + Content Structuring
-Github:
-https://github.com/mahaznoor
-Medium:
-https://medium.com/@mahaznoori
-
-
-
-@[Hizar Abdullah]--Model Visualizaion + Data Visualization + Result Visualization + Graphical Representation
-Github:
-https://github.com/khizerista
-Medium:
-https://medium.com/@khizerarena77
-
+## 👥 Team
+| Member | Role | Contribution |
+|--------|------|-------------|
+| [Ayesha Aniqa](https://github.com/ayesha-aniqa) | Team Lead | Team leadership, website frontend, model evaluation, performance analysis, collaboration & coordination |
+| [Anees Ahmad](https://github.com/IaM-AnEeS) | ML Engineer | Dataset preprocessing, data cleaning, feature engineering, model training & development, README contribution |
+| [Kashan Saqib](https://github.com/Kashhan) | QA Engineer | Model testing, error analysis, validation & performance testing |
+| [Muhammad Mahaz Noor](https://github.com/mahaznoor) | Technical Writer | Documentation, README preparation, technical writing, content structuring |
+| [Hizar Abdullah](https://github.com/khizerista) | Data Analyst | Model visualization, data visualization, result visualization, graphical representation |
 
 Project Repository:  
 https://github.com/ayesha-aniqa/Stock_price_prediction
 
----
 
 ## Acknowledgements
 
@@ -301,7 +295,6 @@ https://github.com/ayesha-aniqa/Stock_price_prediction
 - Kaggle (Dataset Source)
 - Open Source Community
 
----
 
 If you found this project useful, consider giving it a star.
 Thank You
