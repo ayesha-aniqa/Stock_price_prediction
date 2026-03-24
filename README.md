@@ -211,22 +211,10 @@ This notebook generates:
 ![Model Performance](assets/Model_Performance_Metrics.png)
 ![Residuals](assets/Residual_Error_Distribution.png)
 ![Scatter Plot](assets/Scatter_Plot.png)
+
 ## Project Workflow
 
-Raw Stock Data
-↓
-Data Preprocessing (Pandas)
-↓
-Feature Scaling (MinMaxScaler)
-↓
-Train-Test Split (Time-Series Based)
-↓
-Model Training (XGBoost)
-↓
-Model Evaluation
-↓
-Visualization (Matplotlib & Seaborn)
-
+![flowchart](https://github.com/user-attachments/assets/e6b40f5b-65eb-498c-bc34-7a63a5a277b0)
 
 This structured workflow ensures reproducibility, clarity, and professional implementation standards.
 
