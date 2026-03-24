@@ -206,7 +206,7 @@ This notebook generates:
 
 ### Visuals
 
-![Actual vs Predicted](assets/Actual_vs_Predicted.png)
+![Actual vs Predicted](assets/Actual_Predicted.png)
 ![Feature Importance](assets/Feature_Importance_XGBoost.png)
 ![Model Performance](assets/Model_Performance_Metrics.png)
 ![Residuals](assets/Residual_Error_Distribution.png)
