@@ -266,11 +266,6 @@ Steps:
 4. Push to branch:
 5. Open a Pull Request
 
-## License
-
-Distributed under the MIT License.  
-See LICENSE file for more information.
-
 ---
 
 ## Team Contribuition
@@ -297,4 +292,10 @@ See LICENSE file for more information.
 
 If you found this project useful, consider giving it a star.
 Thank You
-  
+
+---
+
+## License
+
+Distributed under the MIT License.  
+See LICENSE file for more information.
