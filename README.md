@@ -204,7 +204,7 @@ This notebook generates:
 - Scatter Plot (Predicted vs Actual)
 - Model Performance Summary
 
-### Visuals
+### 6. Visuals
 
 ![Actual vs Predicted](assets/Actual_Predicted.png)
 ![Feature Importance](assets/Feature_Importance_XGBoost.png)
