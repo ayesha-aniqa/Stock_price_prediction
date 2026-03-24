@@ -205,6 +205,7 @@ This notebook generates:
 - Model Performance Summary
 
 ### Visuals
+
 ![Actual vs Predicted](assets/Actual_vs_Predicted.png)
 ![Feature Importance](assets/Feature_Importance_XGBoost.png)
 ![Model Performance](assets/Model_Performance_Metrics.png)
