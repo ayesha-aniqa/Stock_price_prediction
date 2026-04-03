@@ -1,6 +1,4 @@
 
-
-````markdown
 # 📈 NVIDIA Stock Price Prediction (XGBoost)
 
 An end-to-end Machine Learning pipeline to predict NVIDIA's (NVDA) stock market trends using Gradient Boosting. This project transitions from raw data exploration to a production-ready Streamlit application.
