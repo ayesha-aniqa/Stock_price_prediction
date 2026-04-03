@@ -1,76 +1,66 @@
-# 📈 Stock Price Prediction using XGBoost
+# 📈 NVIDIA Stock Price Prediction (XGBoost)
+
+An end-to-end Machine Learning solution for predicting NVIDIA's (NVDA) stock price trends. This project features a consolidated production pipeline and a clean, pastel-themed Streamlit dashboard.
+
+[![Fellowship](https://img.shields.io/badge/GDGOC%20Attock-AIML--Fellowship1-blue)](#)
+[![Python](https://img.shields.io/badge/Python-3.10+-green)](#)
+[![Framework](https://img.shields.io/badge/Model-XGBoost-orange)](#)
 
 ---
 
-## Table of Contents
+## 📌 Table of Contents
+* [Project Workflow](#-project-workflow)
+* [Visuals & Flow Diagram](#-visuals--flow-diagram)
+* [Repository Structure](#-repository-structure)
+* [Installation & Usage](#-installation--usage)
+* [Model Performance & Metrics](#-model-performance--metrics)
+* [Model Limitations](#-model-limitations)
+* [Contributions](#-contributions)
 
-- [About The Project](#about-the-project)
-- [Project Structure](#project-structure)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Dependencies](#dependencies)
-  - [Installation](#installation)
-  - [Alternative: Export Your Environment](#alternative-export-your-environment)
-- [Usage](#usage)
-- [Project Workflow](#project-workflow)
-- [Results](#results)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Authors](#authors)
-- [Acknowledgements](#acknowledgements)
+---
 
+## ⚙️ Project Workflow
+The project is designed with a **"Rule of One"** philosophy—consolidating complex logic into a single, high-performance engine.
 
+1.  **Data Preprocessing**: Historical data is cleaned, sorted by date, and handled for null values.
+2.  **Feature Engineering**: Technical indicators including Moving Averages ($MA_{10}, MA_{50}$), Lag features ($Lag_1, Lag_2, Lag_3$), and Volatility are calculated.
+3.  **Data Scaling**: A `MinMaxScaler` is fitted strictly on training data to prevent data leakage.
+4.  **Model Training**: An XGBoost Regressor is trained to predict the next day's closing price.
+5.  **Deployment**: A Streamlit UI provides an interface to input market values and receive instant predictions.
 
-## About The Project
+---
 
-This project implements a Machine Learning-based **Stock Price Prediction System** using historical stock market data.
+## 📊 Visuals & Flow Diagram
 
-The main objective is to predict future stock prices using advanced regression techniques while following a complete and professional machine learning pipeline.
+### Project Flowchart
+![Project Flowchart](reports/flowchart.png)
 
-The project includes:
+### Model Insights
+The pipeline automatically generates and saves the following reports in the `reports/` directory:
+* **Feature Importance**: Visualizes which technical indicators drive the prediction.
+* **Actual vs Predicted**: A time-series comparison of model performance.
+* **Residual Distribution**: Analysis of prediction errors.
 
-- Data preprocessing using **Pandas**
-- Feature scaling using **MinMaxScaler**
-- Model training using **XGBoost Regressor**
-- Model testing and performance evaluation
-- Data visualization using **Matplotlib and Seaborn**
+---
 
-The dataset consists of historical stock information such as Open, High, Low, Close, Volume, and engineered features. The target variable represents the future stock price.
-
-This project demonstrates a complete end-to-end machine learning workflow suitable for academic and practical applications.
-
-## Project Structure
-``` bash
-STOCK_PRICE_PREDICTION/
-├── app/                        # Streamlit web application
+## 📂 Repository Structure
+```text
+Stock_price_prediction/
+├── app/
+│   └── streamlit_app.py      # Pastel-themed UI
 ├── data/
-│   ├── nvidia.csv              # Raw dataset
-│   └── processed_nvidia.csv    # Cleaned & processed data
-├── docs/
-│   └── README.md
+│   ├── nvidia.csv            # Raw historical data
+│   └── processed_nvidia.csv  # Engineered features
 ├── models/
-│   └── trained_model.pkl       # Serialized trained model
+│   ├── xgboost_model.pkl     # Trained engine
+│   └── scaler.pkl            # Saved normalization parameters
 ├── notebooks/
-│   ├── evaluate.ipynb
-│   ├── model_testing.ipynb
-│   ├── model_training.ipynb
-│   ├── Model_Visualization.ipynb
-│   ├── preprocessing.ipynb
-│   ├── scaler.pkl
-│   └── xgboost_model.pkl
+│   └── stock_price_prediction.ipynb # Research & Experimentation
+├── reports/
+│   └── (Auto-generated charts and visuals)
 ├── src/
-│   ├── evaluate.py
-│   ├── features.py
-│   ├── predict.py
-│   ├── preprocess.py
-│   ├── test.py
-│   ├── train.py
-│   ├── utils.py
-│   └── visual.py
-├── .gitignore
-├── LICENSE
-├── requirements.txt
+│   └── pipeline.py           # The "Master Script" for all logic
+├── requirements.txt          # Environment dependencies
 └── README.md
 ```
 ## Built With
