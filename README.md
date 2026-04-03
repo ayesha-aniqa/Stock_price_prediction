@@ -1,45 +1,40 @@
+
+
+````markdown
 # 📈 NVIDIA Stock Price Prediction (XGBoost)
 
-An end-to-end Machine Learning solution for predicting NVIDIA's (NVDA) stock price trends. This project features a consolidated production pipeline and a clean, pastel-themed Streamlit dashboard.
-
-[![Fellowship](https://img.shields.io/badge/GDGOC%20Attock-AIML--Fellowship1-blue)](#)
-[![Python](https://img.shields.io/badge/Python-3.10+-green)](#)
-[![Framework](https://img.shields.io/badge/Model-XGBoost-orange)](#)
+An end-to-end Machine Learning pipeline to predict NVIDIA's (NVDA) stock market trends using Gradient Boosting. This project transitions from raw data exploration to a production-ready Streamlit application.
 
 ---
 
 ## 📌 Table of Contents
-* [Project Workflow](#-project-workflow)
+* [Project Workflow](#%EF%B8%8F-project-workflow)
 * [Visuals & Flow Diagram](#-visuals--flow-diagram)
 * [Repository Structure](#-repository-structure)
+* [Dataset Description](#-dataset-description)
 * [Installation & Usage](#-installation--usage)
-* [Model Performance & Metrics](#-model-performance--metrics)
-* [Model Limitations](#-model-limitations)
-* [Contributions](#-contributions)
+* [Results & Evaluation](#-results--evaluation)
+* [Team Contribution](#-team-contribution)
+* [Acknowledgements](#-acknowledgements)
+* [License](#-license)
+* [Medium Article](#-medium-article)
 
 ---
 
 ## ⚙️ Project Workflow
-The project is designed with a **"Rule of One"** philosophy—consolidating complex logic into a single, high-performance engine.
-
-1.  **Data Preprocessing**: Historical data is cleaned, sorted by date, and handled for null values.
-2.  **Feature Engineering**: Technical indicators including Moving Averages ($MA_{10}, MA_{50}$), Lag features ($Lag_1, Lag_2, Lag_3$), and Volatility are calculated.
-3.  **Data Scaling**: A `MinMaxScaler` is fitted strictly on training data to prevent data leakage.
-4.  **Model Training**: An XGBoost Regressor is trained to predict the next day's closing price.
-5.  **Deployment**: A Streamlit UI provides an interface to input market values and receive instant predictions.
+1.  **Data Ingestion**: Loading historical NVDA stock data.
+2.  **Feature Engineering**: Generating technical indicators ($MA_{10}, MA_{50}$), Lag features ($Lag_1, Lag_2, Lag_3$), and daily volatility.
+3.  **Scaling**: Applying `MinMaxScaler` to normalize features for the XGBoost engine.
+4.  **Training**: Utilizing `XGBRegressor` with optimized hyperparameters for time-series forecasting.
+5.  **Deployment**: Serving the model through an interactive Streamlit dashboard.
 
 ---
 
 ## 📊 Visuals & Flow Diagram
+### Project Architecture
+![Project Flowchart](reports/Flowchart.png)
 
-### Project Flowchart
-![Project Flowchart](reports/flowchart.png)
-
-### Model Insights
-The pipeline automatically generates and saves the following reports in the `reports/` directory:
-* **Feature Importance**: Visualizes which technical indicators drive the prediction.
-* **Actual vs Predicted**: A time-series comparison of model performance.
-* **Residual Distribution**: Analysis of prediction errors.
+*Note: The pipeline automatically generates Feature Importance and Actual vs. Predicted charts in the `reports/` folder during execution.*
 
 ---
 
@@ -47,233 +42,97 @@ The pipeline automatically generates and saves the following reports in the `rep
 ```text
 Stock_price_prediction/
 ├── app/
-│   └── streamlit_app.py      # Pastel-themed UI
+│   └── streamlit_app.py      # Interactive Dashboard
 ├── data/
-│   ├── nvidia.csv            # Raw historical data
-│   └── processed_nvidia.csv  # Engineered features
+│   ├── nvidia.csv            # Raw Data
+│   └── processed_nvidia.csv  # Engineered Features
 ├── models/
-│   ├── xgboost_model.pkl     # Trained engine
-│   └── scaler.pkl            # Saved normalization parameters
+│   ├── xgboost_model.pkl     # Trained Model
+│   └── scaler.pkl            # Saved Scaler
 ├── notebooks/
-│   └── stock_price_prediction.ipynb # Research & Experimentation
+│   └── stock_analysis.ipynb  # Experimental Research
 ├── reports/
-│   └── (Auto-generated charts and visuals)
+│   └── (Auto-generated Visuals)
 ├── src/
-│   └── pipeline.py           # The "Master Script" for all logic
-├── requirements.txt          # Environment dependencies
+│   └── pipeline.py           # Core Execution Script
+├── requirements.txt          # Dependencies
 └── README.md
-```
-## Built With
+````
 
-- Python 3.10+
-- Pandas
-- NumPy
-- Scikit-learn
-- XGBoost
-- Matplotlib
-- Seaborn
-- Pickle
+-----
 
-## Getting Started
+## 💾 Dataset Description
 
-To run this project locally, follow the instructions below.
+The model uses historical price data for **NVIDIA (NVDA)**.
 
+  * **Source**: https://www.kaggle.com/datasets/amirhoseinmousavian/nvidia-corporation-nvda-stock-price.
+  * **Features**: Open, High, Low, Close, Volume.
+  * **Description**: This dataset is a time-series stock market dataset that contains daily trading information for a financial asset from 2020 to 2024. Each row represents a single trading day and includes key features. This type of dataset is commonly used for analyzing market trends, studying price movements, and building predictive models in finance.
 
+-----
 
-## Dependencies
+## 🚀 Installation & Usage
 
-Required libraries:
+### Installation
 
-- pandas >= 1.5.0
-- numpy >= 1.23.0
-- scikit-learn >= 1.2.0
-- xgboost >= 1.7.0
-- matplotlib >= 3.6.0
-- seaborn >= 0.12.0
-
-Install all dependencies using:
 ```bash
-pip install -r requirements.txt
-pip install pandas numpy scikit-learn xgboost matplotlib seaborn
-```
-
-## Installation
-
-Clone the repository:
-```bash
-git clone https://github.com/ayesha-aniqa/Stock_price_prediction
+git clone [https://github.com/ayesha-aniqa/Stock_price_prediction.git](https://github.com/ayesha-aniqa/Stock_price_prediction.git)
 cd Stock_price_prediction
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
-Navigate to the project folder:
 
+### Usage
 
-## Usage
+1.  **To Train/Update Model**:
+    `python src/pipeline.py`
+2.  **To Launch App**:
+    `python -m streamlit run app/streamlit_app.py`
 
-The project is organized into Jupyter notebooks representing each stage of the machine learning pipeline.
+-----
 
-### 1. Dataset
-kaggle Dataset link: https://www.kaggle.com/datasets/amirhoseinmousavian/nvidia-corporation-nvda-stock-price
+## 📈 Results
 
-## Description
-This dataset is a time-series stock market dataset that contains daily trading information for a financial asset from 2020 to 2024. Each row represents a single trading day and includes key features such as the opening price, highest and lowest prices during the day, closing price, adjusted closing price (which accounts for dividends and stock splits), and trading volume. This type of dataset is commonly used for analyzing market trends, studying price movements, and building predictive models in finance.
+The model's performance is evaluated using standard regression metrics:
 
-Each row represents one trading day, with the following columns:
+  * **MSE (Mean Squared Error)**: [314.40]
+  * **MAE (Mean Absolute Error)**: [263.297]
+  * **R² Score**: [-2.261]
 
-Date – the trading day
+-----
 
-Open – the price at which the asset opened
+## 🤝 Team Contribution
 
-High – the highest price reached during the day
+This project was developed during the **\#GDGOCAttock-AIML-Fellowship1**.
 
-Low – the lowest price during the day
+| Name & Role | Primary Contributions | GitHub | Medium |
+| :--- | :--- | :--- | :--- |
+| **Ayesha Aniqa** (Lead) | Model evaluation, Streamlit UI, Article writing | [Link](https://github.com/ayesha-aniqa) | [Profile](https://medium.com/@codeaisha123) |
+| **Aneed Ahmad** | Data collection, Preprocessing, Training, Documentation | [Link](https://github.com/IaM-AnEeS) | [Profile](https://medium.com/@aneesnesu042) |
+| **Hizar Abdullah** | Visualization development, Article writing | [Link](https://github.com/khizeristan) | [Profile](https://medium.com/@khizerarena77) |
+| **Kashan Saqib** | Model testing, Article writing | [Link](https://github.com/Kashhan) | [Profile](https://medium.com/@kashhann) |
+| **Mahaz Noor** | Lead documentation, Article writing | [Link](https://github.com/mahaznoor) | [Profile](https://medium.com/@mahaznoori) |
 
-Close – the price at market close
+-----
 
-Adj Close – the adjusted closing price (accounts for dividends, splits, etc.)
+## 📖 Medium Article
 
-Volume – the number of shares traded that day
-Overall, the dataset is useful for financial analysis, such as tracking price trends, performing technical analysis, building predictive models, or studying market behavior over time.
+Read our full technical breakdown and insights here:
+👉 **[NVIDIA Stock Price Prediction: An AI/ML Journey](https://medium.com/@codeaisha123/nvidia-stock-price-prediction-an-end-to-end-guide-using-xgboost-9e69e1cf4b3e)**
 
-### 2. Data Preprocessing
+-----
 
-Run: 
-```bash
-notebooks/preprocessing.ipynb
+## 🎖️ Acknowledgements
+
+  * Special thanks to **GDGOC Attock** for providing the fellowship platform.
+  * Mentors and peers for their continuous feedback on the XGBoost implementation.
+
+-----
+
+## 📜 License
+
+This project is licensed under the **MIT License**. You are free to use, modify, and distribute this software with proper attribution.
+
+-----
+
 ```
-
-This notebook:
-- Cleans missing values
-- Creates the target variable
-- Splits dataset into training and testing sets (90% train, 10% test)
-- Applies MinMax scaling
-
-### 3. Model Training
-
-Run: 
-```bash
-notebooks/model_training.ipynb
 ```
-
-This notebook:
-- Trains an XGBoost Regressor
-- Uses hyperparameters:
-  - n_estimators = 500
-  - learning_rate = 0.03
-  - max_depth = 6
-  - random_state = 42
-- Saves trained model as:
-  - xGboost_model.pkl
-  - scaler.pkl
-
-### 4. Model Testing
-
-Run: notebooks/model_testing.ipynb
-
-
-This notebook:
-- Loads saved model and scaler
-- Predicts stock prices
-- Evaluates performance using:
-  - Mean Squared Error (MSE)
-  - Mean Absolute Error (MAE)
-  - R² Score
-
-### 5. Model Visualization
-
-Run: notebooks/Model_Visualization.ipynb
-
-
-This notebook generates:
-
-- Actual vs Predicted Stock Price Plot
-- Feature Importance Graph
-- Residual Error Distribution
-- Scatter Plot (Predicted vs Actual)
-- Model Performance Summary
-
-### 6. Visuals
-
-![Actual vs Predicted](assets/Actual_Predicted.png)
-![Feature Importance](assets/Feature_Importance_XGBoost.png)
-![Model Performance](assets/Model_Performance_Metrics.png)
-![Residuals](assets/Residual_Error_Distribution.png)
-![Scatter Plot](assets/Scatter_Plot.png)
-
-## Project Workflow
-
-![flowchart](https://github.com/user-attachments/assets/e6b40f5b-65eb-498c-bc34-7a63a5a277b0)
-
-This structured workflow ensures reproducibility, clarity, and professional implementation standards.
-
----
-
-## Results
-
-The model performance is evaluated using:
-
-- Mean Squared Error (MSE)
-- Mean Absolute Error (MAE)
-- R² Score
-
-The XGBoost model demonstrates strong predictive capability in modeling nonlinear patterns in stock price data.
-
-Visual comparisons between actual and predicted values show close alignment, validating model effectiveness.
-
-## Roadmap
-
-Future improvements:
-
-- Hyperparameter tuning using GridSearchCV
-- Time-series cross-validation
-- Real-time stock API integration
-- Deployment using Flask or Streamlit
-- Comparison with Deep Learning models (LSTM/GRU)
-
-## Contributing
-
-Contributions are welcome.
-
-Steps:
-
-1. Fork the repository
-2. Create a feature branch:
-3. Commit changes:
-4. Push to branch:
-5. Open a Pull Request
-
----
-
-## Team Contribuition
-
-## 👥 Team
-| Member | Role | Contribution |
-|--------|------|-------------|
-| [Ayesha Aniqa](https://github.com/ayesha-aniqa) | Team Lead | Team leadership, website frontend, model evaluation, performance analysis, collaboration & coordination |
-| [Anees Ahmad](https://github.com/IaM-AnEeS) | ML Engineer | Dataset preprocessing, data cleaning, feature engineering, model training & development, README contribution |
-| [Kashan Saqib](https://github.com/Kashhan) | QA Engineer | Model testing, error analysis, validation & performance testing |
-| [Muhammad Mahaz Noor](https://github.com/mahaznoor) | Technical Writer | Documentation, README preparation, technical writing, content structuring |
-| [Hizar Abdullah](https://github.com/khizerista) | Data Analyst | Model visualization, data visualization, result visualization, graphical representation |
-
-
-
-
-## Acknowledgements
-
-- Scikit-learn Documentation
-- XGBoost Official Documentation
-- Kaggle (Dataset Source)
-- Open Source Community
-
-
-If you found this project useful, consider giving it a star.
-Thank You
-
----
-
-## License
-
-Distributed under the MIT License.  
-See LICENSE file for more information.
