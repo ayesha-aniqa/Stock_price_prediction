@@ -13,9 +13,10 @@ An end-to-end Machine Learning pipeline to predict NVIDIA's (NVDA) stock market 
 * [Installation & Usage](#-installation--usage)
 * [Results & Evaluation](#-results--evaluation)
 * [Team Contribution](#-team-contribution)
+* [Medium Article](#-medium-article)
 * [Acknowledgements](#-acknowledgements)
 * [License](#-license)
-* [Medium Article](#-medium-article)
+
 
 ---
 
@@ -31,8 +32,9 @@ An end-to-end Machine Learning pipeline to predict NVIDIA's (NVDA) stock market 
 ## 📊 Visuals & Flow Diagram
 ### Project Architecture
 ![Project Flowchart](reports/flowchart.png)
-
-*Note: The pipeline automatically generates Feature Importance and Actual vs. Predicted charts in the `reports/` folder during execution.*
+![Feature Importance](reports/eval_feature_importance.png)
+![Prediction Accuracy](reports/actual_vs_predicted.png)
+![Error Analysis](reports/eval_residuals.png)
 
 ---
 
