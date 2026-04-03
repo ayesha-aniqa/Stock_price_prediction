@@ -76,7 +76,7 @@ The model uses historical price data for **NVIDIA (NVDA)**.
 ### Installation
 
 ```bash
-git clone [https://github.com/ayesha-aniqa/Stock_price_prediction.git](https://github.com/ayesha-aniqa/Stock_price_prediction.git)
+git clone https://github.com/ayesha-aniqa/Stock_price_prediction.git
 cd Stock_price_prediction
 pip install -r requirements.txt
 ```
